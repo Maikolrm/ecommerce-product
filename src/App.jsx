@@ -1,8 +1,19 @@
 import { useState } from 'react'
 
+// components
+import Header from "./components/Header"
+import Slide from "./components/Slide"
+import ShoppingCart from "./components/ShoppingCart"
+
 function App() {
   return (
-    <div className="text-red-500">Welcome</div>
+    <div className="container m-auto">
+      <Header />
+      <div className="flex">
+        <Slide />
+        <ShoppingCart />
+      </div>
+    </div>
   )
 }
 
