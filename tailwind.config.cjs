@@ -13,6 +13,9 @@ module.exports = {
         "dark-blue": "hsl(219, 9%, 45%)",
         "vark-blue": "hsl(220, 13%, 13%)",
         "light-blue": "hsl(223, 64%, 98%)"
+      },
+      fontFamily: {
+        "kumbh-sans": ["kumbh sans"]
       }
     },
   },
