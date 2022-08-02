@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="container m-auto">
       <Header />
-      <div className="flex">
+      <div className="flex py-16">
         <Slide />
         <ShoppingCart />
       </div>
