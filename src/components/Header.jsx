@@ -1,6 +1,10 @@
+// components
+import ShoppingCart from "./ShoppingCart"
+
 export default function Header(props) {
   return (
-    <header className="flex items-center p-4 border-b border-gray-200">
+    <header className="relative flex items-center p-4 border-b border-gray-200">
+      <ShoppingCart />
       <button className="w-10 h-10 mr-2 bg-light-blue rounded-md text-base text-vark-blue leading-10 lg:hidden">
         <i className="fa-solid fa-bars"></i>
       </button>
