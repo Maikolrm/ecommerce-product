@@ -40,7 +40,7 @@ function App() {
     <AppState.Provider value={state}>
       <AppDispatch.Provider value={dispatch}>
         <div className="container m-auto">
-          <Header />
+          <Header cart={state.cart} />
           <div className="lg:flex lg:py-16">
             <ProductSlide />
             <ProductInfo dispatch={dispatch} />
