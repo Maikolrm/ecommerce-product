@@ -20,16 +20,16 @@ export default function ShoppingCart(props) {
       <div className={props.items.length ? "" : "h-64"}>
         {Boolean(props.items.length) ? (
           <div className="p-6">
-            {props.items.map(item => (
-              <div key={item.id} className="flex items-center">
+            {props.items.map(product => (
+              <div key={product.id} className="flex items-center">
                 <div className="w-16 rounded-md overflow-hidden">
-                  <img className="w-full h-full object-cover" src={item.img} alt={item.name} />
+                  <img className="w-full h-full object-cover" src={product.img} alt={product.name} />
                 </div>
                 <div className="flex-1 pl-4 text-base text-dark-blue">
-                  <h2 className="leading-none truncate">{item.name}</h2>
-                  <p className="mt-3 leading-none">${item.price.toFixed(2)} x {item.quantity} <span className="ml-1 font-bold text-vark-blue">${(item.price * item.quantity).toFixed(2)}</span></p>
+                  <h2 className="leading-none truncate">{product.name}</h2>
+                  <p className="mt-3 leading-none">${product.price.toFixed(2)} x {product.quantity} <span className="ml-1 font-bold text-vark-blue">${(product.price * product.quantity).toFixed(2)}</span></p>
                 </div>
-                <button onClick={() => props.dispatch({ type: "delete-cart-product", id: 1 })} className="w-10 h-10 text-base text-right text-gr-blue leading-10">
+                <button onClick={() => props.dispatch({ type: "delete-cart-product", id: product.id })} className="w-10 h-10 text-base text-right text-gr-blue leading-10">
                   <i className="fa-solid fa-trash"></i>
                 </button>
               </div>
