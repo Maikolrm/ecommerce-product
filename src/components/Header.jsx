@@ -15,9 +15,9 @@ export default function Header(props) {
   const appDispatch = useContext(AppDispatch)
 
   return (
-    <header className="relative flex items-center p-4 border-b border-gray-200">
+    <header className="relative flex items-center p-4 border-b border-gray-200 bg-white">
       <ShoppingCart visible={cart.visible} items={cart.items} dispatch={appDispatch} />
-      <button className="w-10 h-10 mr-2 bg-light-blue rounded-md text-base text-vark-blue leading-10 lg:hidden">
+      <button onClick={() => props.dispatch({ type: "show-mobile-nav", value: true })} className="w-10 h-10 mr-2 bg-light-blue rounded-md text-base text-vark-blue leading-10 lg:hidden">
         <i className="fa-solid fa-bars"></i>
       </button>
       <a href="#">
