@@ -22,6 +22,12 @@ function App() {
   // reducer
   function reducer(draft, action) {
     switch(action.type) {
+      case "add-cart-product":
+        draft.cart.items.push(action.product)
+        break
+      case "delete-cart-product":
+        draft.cart.items = draft.cart.items.filter(product => product.id != action.id)
+        break
       case "show-cart":
         draft.cart.visible = action.value
         break
@@ -37,7 +43,7 @@ function App() {
           <Header />
           <div className="lg:flex lg:py-16">
             <ProductSlide />
-            <ProductInfo />
+            <ProductInfo dispatch={dispatch} />
           </div>
         </div>
       </AppDispatch.Provider>
