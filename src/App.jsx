@@ -9,6 +9,7 @@ import AppDispatch from "./AppDispatch"
 import Header from "./components/Header"
 import ProductSlide from "./components/ProductSlide"
 import ProductInfo from "./components/ProductInfo"
+import MobileNavigation from "./components/MobileNavigation"
 
 function App() {
   // initial state
@@ -16,12 +17,16 @@ function App() {
     cart: {
       items: [],
       visible: false
-    }
+    },
+    mobileNav: false
   }
   
   // reducer
   function reducer(draft, action) {
     switch(action.type) {
+      case "show-mobile-nav":
+        draft.mobileNav = action.value
+        break
       case "add-cart-product":
         draft.cart.items.push(action.product)
         break
@@ -39,12 +44,13 @@ function App() {
   return (
     <AppState.Provider value={state}>
       <AppDispatch.Provider value={dispatch}>
-        <div className="container m-auto">
-          <Header cart={state.cart} />
+        <div className="relative container m-auto">
+          <Header cart={state.cart} dispatch={dispatch} />
           <div className="lg:flex lg:py-16">
             <ProductSlide />
             <ProductInfo dispatch={dispatch} />
           </div>
+          {state.mobileNav && <MobileNavigation dispatch={dispatch} />}
         </div>
       </AppDispatch.Provider>
     </AppState.Provider>
