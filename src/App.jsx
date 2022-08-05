@@ -22,6 +22,7 @@ function App() {
       images: [],
       discount: 0
     },
+    selectedImage: 0, // product images array
     cart: {
       items: [],
       visible: false
@@ -34,6 +35,9 @@ function App() {
     switch(action.type) {
       case "set-product-information":
         draft.product = action.value
+        break
+      case "select-product-image":
+        draft.selectedImage = action.value
         break
       case "show-mobile-nav":
         draft.mobileNav = action.value
@@ -73,7 +77,7 @@ function App() {
         <div className="relative container m-auto">
           <Header product={state.product} cart={state.cart} dispatch={dispatch} />
           <div className="lg:flex lg:py-16">
-            <ProductSlide images={state.product.images} />
+            <ProductSlide product={state.product} selectedImage={state.selectedImage} dispatch={dispatch} />
             <ProductInfo product={state.product} dispatch={dispatch} />
           </div>
           {state.mobileNav && <MobileNavigation dispatch={dispatch} />}
