@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect } from 'react'
 import { useImmerReducer } from "use-immer"
 
 // context
@@ -14,6 +14,14 @@ import MobileNavigation from "./components/MobileNavigation"
 function App() {
   // initial state
   const initialState = {
+    product: {
+      id: null,
+      name: "",
+      price: 0,
+      description: "",
+      images: [],
+      discount: 0
+    },
     cart: {
       items: [],
       visible: false
@@ -24,6 +32,9 @@ function App() {
   // reducer
   function reducer(draft, action) {
     switch(action.type) {
+      case "set-product-information":
+        draft.product = action.value
+        break
       case "show-mobile-nav":
         draft.mobileNav = action.value
         break
@@ -41,14 +52,28 @@ function App() {
 
   const [state, dispatch] = useImmerReducer(reducer, initialState)
 
+  // first mount
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch("/data.json")
+        const { product } = await response.json()
+        dispatch({ type: "set-product-information", value: product })
+      } catch(e) {
+        console.log(e)
+      }
+    }
+    fetchData()
+  }, [])
+
   return (
     <AppState.Provider value={state}>
       <AppDispatch.Provider value={dispatch}>
         <div className="relative container m-auto">
-          <Header cart={state.cart} dispatch={dispatch} />
+          <Header product={state.product} cart={state.cart} dispatch={dispatch} />
           <div className="lg:flex lg:py-16">
-            <ProductSlide />
-            <ProductInfo dispatch={dispatch} />
+            <ProductSlide images={state.product.images} />
+            <ProductInfo product={state.product} dispatch={dispatch} />
           </div>
           {state.mobileNav && <MobileNavigation dispatch={dispatch} />}
         </div>
