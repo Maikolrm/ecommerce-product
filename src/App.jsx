@@ -39,7 +39,8 @@ function App() {
         draft.mobileNav = action.value
         break
       case "add-cart-product":
-        draft.cart.items.push(action.product)
+        const exist = draft.cart.items.find(prev => prev.id == action.product.id)
+        if (!exist) draft.cart.items.push(action.product)
         break
       case "delete-cart-product":
         draft.cart.items = draft.cart.items.filter(product => product.id != action.id)
