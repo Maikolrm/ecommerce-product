@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* disabled buttons */
+button:disabled {
+  @apply opacity-60
+}
