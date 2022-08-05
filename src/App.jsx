@@ -74,7 +74,7 @@ function App() {
   return (
     <AppState.Provider value={state}>
       <AppDispatch.Provider value={dispatch}>
-        <div className="relative container m-auto">
+        <div className="relative container min-h-screen m-auto">
           <Header product={state.product} cart={state.cart} dispatch={dispatch} />
           <div className="lg:flex lg:py-16">
             <ProductSlide product={state.product} selectedImage={state.selectedImage} dispatch={dispatch} />
