@@ -7,29 +7,25 @@ export default function ProductInfo(props) {
   // handle submit
   function handleSubmit(e) {
     e.preventDefault()
-    props.dispatch({
-      type: "add-cart-product",
-      product: {
-        id: 1,
-        name: "product name",
-        price: 125,
-        quantity: quantity,
-        img: "image-product-1-thumbnail.jpg"
-      }
-    }) // dispatch end
+    props.dispatch({ type: "add-cart-product", product: { ...props.product, quantity: quantity } })
   }
 
   return (
     <section className="flex-1 flex flex-col justify-center p-6 bg-white lg:px-10">
       <h2 className="font-semibold text-sm text-pr-orange uppercase">sneaker company</h2>
-      <h1 className="mt-5 font-bold text-vark-blue text-4xl">Fall Limited Edition Sneakers</h1>
-      <p className="mt-10 text-base text-gr-blue leading-6">Adipisicing eius veritatis repellendus mollitia in Sunt beatae consectetur facilis tempora et impedit alias Pariatur eveniet ullam vero ipsum et.</p>
+      <h1 className="mt-5 font-bold text-vark-blue text-4xl">{props.product.name}</h1>
+      <p className="mt-10 text-base text-gr-blue leading-6">
+        {props.product.description}
+      </p>
       <div className="mt-8">
         <div className="flex items-center justify-between">
           <h2 className="flex items-center font-bold text-2xl leading-none">
-            <span>$125.00</span> <span className="inline-block ml-4 p-1 bg-pr-pale-orange rounded-sm text-base text-pr-orange leading-none">50%</span>
+            <span>${(props.product.price - (props.product.price * (props.product.discount / 100)))}</span>
+            <span className="inline-block ml-4 p-1 bg-pr-pale-orange rounded-sm text-base text-pr-orange leading-none">
+              {props.product.discount}%
+            </span>
           </h2>
-          <h4 className="font-bold text-sm text-gr-blue line-through">250.00</h4>
+          <h4 className="font-bold text-sm text-gr-blue line-through">{props.product.price}</h4>
         </div>
         <form onSubmit={handleSubmit} className="mt-10 lg:flex">
           <div className="flex bg-light-blue rounded-md overflow-hidden">
