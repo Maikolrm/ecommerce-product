@@ -10,6 +10,7 @@ import Header from "./components/Header"
 import ProductSlide from "./components/ProductSlide"
 import ProductInfo from "./components/ProductInfo"
 import MobileNavigation from "./components/MobileNavigation"
+import LightBox from "./components/LightBox"
 
 function App() {
   // initial state
@@ -27,7 +28,8 @@ function App() {
       items: [],
       visible: false
     },
-    mobileNav: false
+    mobileNav: false,
+    showLightbox: false
   }
   
   // reducer
@@ -75,6 +77,7 @@ function App() {
     <AppState.Provider value={state}>
       <AppDispatch.Provider value={dispatch}>
         <div className="relative container min-h-screen m-auto">
+          {state.lightBox && <LightBox product={state.product} selectedImage={state.selectedImage} dispatch={state.dispatch} />}
           <Header product={state.product} cart={state.cart} dispatch={dispatch} />
           <div className="lg:flex lg:py-16">
             <ProductSlide product={state.product} selectedImage={state.selectedImage} dispatch={dispatch} />
