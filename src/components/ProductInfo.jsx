@@ -32,7 +32,7 @@ export default function ProductInfo(props) {
             <button disabled={!quantity ? "disabled" : ""} className="w-12 h-12 text-center text-pr-orange leading-10">
               <i className="fa-solid fa-minus"></i>
             </button>
-            <input onChange={e => setQuantity(parseInt(e.target.value))} value={quantity ? quantity : ""} className="flex-1 font-bold text-xl text-center text-vart-blue bg-transparent" type="number" name="count" id="count" placeholder="0" />
+            <input onChange={e => setQuantity(parseInt(e.target.value))} value={quantity ? quantity : ""} className="flex-1 font-bold text-xl text-center text-vart-blue bg-transparent" type="text" name="count" id="count" placeholder="0" />
             <button className="w-12 h-12 text-center text-pr-orange leading-10">
               <i className="fa-solid fa-plus"></i>
             </button>
