@@ -1,3 +1,6 @@
+// components
+import SlideImage from "./SlideImage"
+
 export default function ProductSlide(props) {
   return (
     <section className="flex-1 lg:px-10">
@@ -10,7 +13,7 @@ export default function ProductSlide(props) {
             <i className="fa-solid fa-angle-right"></i>
           </button>
         </div>
-        <img className="block w-full" src={`/image-product-${props.selectedImage + 1}.jpg`} alt="" />
+        <SlideImage styles="xl:rounded-xl overflow-hidden" />
       </div>
       <div className="gap-8 mt-8 hidden lg:flex">
         {props.product.images.map((button, index) => (
