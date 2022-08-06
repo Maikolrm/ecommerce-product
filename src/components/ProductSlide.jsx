@@ -1,5 +1,6 @@
 // components
 import SlideImage from "./SlideImage"
+import SlideControls from "./SlideControls"
 
 export default function ProductSlide(props) {
   return (
@@ -15,13 +16,7 @@ export default function ProductSlide(props) {
         </div>
         <SlideImage styles="xl:rounded-xl overflow-hidden" />
       </div>
-      <div className="gap-8 mt-8 hidden lg:flex">
-        {props.product.images.map((button, index) => (
-          <button key={index} className="flex-1 border-2 border-transparent rounded-xl overflow-hidden">
-            <img className="w-full h-full object-cover" src={`/image-product-${index + 1}-thumbnail.jpg`} alt="product image" />
-          </button>
-        ))}
-      </div>
+      <SlideControls product={props.product} styles="grid gap-6 grid-cols-4 mt-6" />
     </section>
   )
 }
