@@ -10,6 +10,16 @@ export default function ProductInfo(props) {
     props.dispatch({ type: "add-cart-product", product: { ...props.product, quantity: quantity } })
   }
 
+  // handle quantity
+  function handleQuantity(e, action) {
+    e.preventDefault()
+    if (action === "increase") {
+      setQuantity(prev => prev + 1)
+    } else {
+      setQuantity(prev => prev - 1)
+    }
+  }
+
   return (
     <section className="flex-1 flex flex-col justify-center p-6 bg-white lg:px-10">
       <h2 className="font-semibold text-sm text-pr-orange uppercase">sneaker company</h2>
@@ -29,11 +39,11 @@ export default function ProductInfo(props) {
         </div>
         <form onSubmit={handleSubmit} className="mt-10 lg:flex">
           <div className="flex bg-light-blue rounded-md overflow-hidden">
-            <button disabled={!quantity ? "disabled" : ""} className="w-12 h-12 text-center text-pr-orange leading-10">
+            <button onClick={e => handleQuantity(e, "decrease")} disabled={!quantity ? "disabled" : ""} className="w-12 h-12 text-center text-pr-orange leading-10">
               <i className="fa-solid fa-minus"></i>
             </button>
             <input onChange={e => setQuantity(parseInt(e.target.value))} value={quantity ? quantity : ""} className="flex-1 font-bold text-xl text-center text-vart-blue bg-transparent" type="text" name="count" id="count" placeholder="0" />
-            <button className="w-12 h-12 text-center text-pr-orange leading-10">
+            <button onClick={e => handleQuantity(e, "increase")} className="w-12 h-12 text-center text-pr-orange leading-10">
               <i className="fa-solid fa-plus"></i>
             </button>
           </div>
