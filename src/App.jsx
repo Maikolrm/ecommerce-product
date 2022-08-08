@@ -77,7 +77,7 @@ function App() {
     <AppState.Provider value={state}>
       <AppDispatch.Provider value={dispatch}>
         <div className="relative container min-h-screen m-auto">
-          {state.lightBox && <LightBox product={state.product} selectedImage={state.selectedImage} dispatch={state.dispatch} />}
+          {state.showLightbox && <LightBox product={state.product} selectedImage={state.selectedImage} dispatch={state.dispatch} />}
           <Header dispatch={dispatch} />
           <main className="xl:flex lg:py-16">
             <ProductSlide product={state.product} selectedImage={state.selectedImage} dispatch={dispatch} />
