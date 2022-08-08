@@ -23,7 +23,7 @@ export default function Header(props) {
       <a href="#">
         <img src="/logo.svg" alt="sneakers" />
       </a>
-      <nav className="flex gap-4 pl-20 hidden">
+      <nav className="flex gap-4 pl-20 hidden lg:flex">
         <a href="#" className="inline-block py-12 border-b-4 border-transparent text-dark-blue hover:border-pr-orange hover:text-vark-blue">Collections</a>
         <a href="#" className="inline-block py-12 border-b-4 border-transparent text-dark-blue hover:border-pr-orange hover:text-vark-blue">Men</a>
         <a href="#" className="inline-block py-12 border-b-4 border-transparent text-dark-blue hover:border-pr-orange hover:text-vark-blue">Women</a>
