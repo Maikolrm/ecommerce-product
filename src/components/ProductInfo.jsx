@@ -46,25 +46,25 @@ export default function ProductInfo(props) {
           <h4 className="font-bold text-sm text-gr-blue line-through">{props.product.price}</h4>
         </div>
         <form onSubmit={handleSubmit} className="mt-10 lg:flex">
-          <div className="flex bg-light-blue rounded-md overflow-hidden">
-            <button onClick={e => handleQuantity(e, "decrease")} disabled={!quantity ? "disabled" : ""} className="w-12 h-12 text-center text-pr-orange leading-10">
+          <div className="flex bg-light-blue rounded-lg overflow-hidden">
+            <button onClick={e => handleQuantity(e, "decrease")} className="w-[60px] h-[60px] text-center text-pr-orange leading-[60px]">
               <i className="fa-solid fa-minus"></i>
             </button>
             <input
               onChange={e => setQuantity(parseInt(e.target.value))}
               value={quantity ? quantity : ""}
-              className="flex-1 font-bold text-xl text-center text-vart-blue bg-transparent xl:w-24"
+              className="flex-1 font-bold text-xl text-center text-vart-blue bg-transparent leading-[60px] xl:w-24"
               type="text"
               name="quantity"
               id="quantity"
               placeholder="0"
             />
-            <button onClick={e => handleQuantity(e, "increase")} className="w-12 h-12 text-center text-pr-orange leading-10">
+            <button onClick={e => handleQuantity(e, "increase")} className="w-[60px] h-[60px] text-center text-pr-orange leading-[60px]">
               <i className="fa-solid fa-plus"></i>
             </button>
           </div>
           <div className="flex-1 mt-4 lg:mt-0 lg:pl-4">
-            <button disabled={!quantity ? "disabled" : ""} className="block w-full font-semibold text-base text-white text-center rounded-md bg-pr-orange shadow-xl leading-[50px] hover:opacity-70">
+            <button disabled={!quantity ? "disabled" : ""} className="block w-full font-semibold text-base text-white text-center rounded-xl bg-pr-orange shadow-xl leading-[60px] hover:opacity-70">
               <i className="inline-block mr-2 fa-solid fa-shopping-cart"></i> Add to cart
             </button>
           </div>
