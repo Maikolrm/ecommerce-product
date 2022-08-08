@@ -79,10 +79,10 @@ function App() {
         <div className="relative container min-h-screen m-auto">
           {state.lightBox && <LightBox product={state.product} selectedImage={state.selectedImage} dispatch={state.dispatch} />}
           <Header dispatch={dispatch} />
-          <div className="xl:flex lg:py-16">
+          <main className="xl:flex lg:py-16">
             <ProductSlide product={state.product} selectedImage={state.selectedImage} dispatch={dispatch} />
             <ProductInfo product={state.product} dispatch={dispatch} />
-          </div>
+          </main>
           {state.mobileNav && <MobileNavigation dispatch={dispatch} />}
         </div>
       </AppDispatch.Provider>
