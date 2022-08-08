@@ -34,7 +34,7 @@ export default function ShoppingCart(props) {
                   <h2 className="leading-none truncate">{product.name}</h2>
                   <p className="mt-3 leading-none">${calculatePrice(product).toFixed(2)} x {product.quantity} <span className="ml-1 font-bold text-vark-blue">${(calculatePrice(product) * product.quantity).toFixed(2)}</span></p>
                 </div>
-                <button onClick={() => props.dispatch({ type: "delete-cart-product", id: product.id })} className="w-10 h-10 text-base text-right text-gr-blue leading-10">
+                <button onClick={() => props.dispatch({ type: "delete-cart-product", id: product.id })} className="w-10 h-10 text-base text-right text-gr-blue leading-10 outline-none hover:text-red-500 focus:text-red-500">
                   <i className="fa-solid fa-trash"></i>
                 </button>
               </div>
