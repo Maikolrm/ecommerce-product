@@ -15,7 +15,7 @@ export default function Lightbox(props) {
           <SlideImage product={props.product} styles="" dispatch={props.dispatch} />
         </div>
         <div>
-          <SlideControls product={props.product} styles="flex gap-6 pt-6" dispatch={props.dipatch} />
+          <SlideControls product={props.product} styles="flex gap-6 pt-6 md:px-6" dispatch={props.dipatch} />
         </div>
       </div>
     </div>
