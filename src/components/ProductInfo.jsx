@@ -50,14 +50,24 @@ export default function ProductInfo(props) {
             <button onClick={e => handleQuantity(e, "decrease")} disabled={!quantity ? "disabled" : ""} className="w-12 h-12 text-center text-pr-orange leading-10">
               <i className="fa-solid fa-minus"></i>
             </button>
-            <input onChange={e => setQuantity(parseInt(e.target.value))} value={quantity ? quantity : ""} className="flex-1 font-bold text-xl text-center text-vart-blue bg-transparent" type="text" name="count" id="count" placeholder="0" />
+            <input
+              onChange={e => setQuantity(parseInt(e.target.value))}
+              value={quantity ? quantity : ""}
+              className="flex-1 font-bold text-xl text-center text-vart-blue bg-transparent xl:w-24"
+              type="text"
+              name="quantity"
+              id="quantity"
+              placeholder="0"
+            />
             <button onClick={e => handleQuantity(e, "increase")} className="w-12 h-12 text-center text-pr-orange leading-10">
               <i className="fa-solid fa-plus"></i>
             </button>
           </div>
-          <button disabled={!quantity ? "disabled" : ""} className="block w-full mt-4 font-semibold text-base text-white text-center rounded-md bg-pr-orange shadow-xl leading-[50px] hover:opacity-70 lg:flex-1 lg:mt-0 lg:ml-4">
-            <i className="inline-block mr-2 fa-solid fa-shopping-cart"></i> Add to cart
-          </button>
+          <div className="flex-1 mt-4 lg:mt-0 lg:pl-4">
+            <button disabled={!quantity ? "disabled" : ""} className="block w-full font-semibold text-base text-white text-center rounded-md bg-pr-orange shadow-xl leading-[50px] hover:opacity-70">
+              <i className="inline-block mr-2 fa-solid fa-shopping-cart"></i> Add to cart
+            </button>
+          </div>
         </form>
       </div>
     </section>
