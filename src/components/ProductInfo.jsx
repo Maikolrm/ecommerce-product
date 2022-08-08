@@ -4,6 +4,14 @@ export default function ProductInfo(props) {
   // local state
   const [quantity, setQuantity] = useState(0)
 
+  // capitalize product name
+  function capitalizeProductName(name) {
+    return name
+      .toLowerCase()
+      .split(" ")
+      .map(word => word.slice(0, 1).toUpperCase() + word.slice(1)).join(" ")
+  }
+
   // handle submit
   function handleSubmit(e) {
     e.preventDefault()
@@ -23,7 +31,7 @@ export default function ProductInfo(props) {
   return (
     <section className="flex-1 flex flex-col justify-center p-6 bg-white lg:px-10">
       <h2 className="font-semibold text-sm text-pr-orange uppercase">sneaker company</h2>
-      <h1 className="mt-5 font-bold text-vark-blue text-4xl">{props.product.name}</h1>
+      <h1 className="mt-5 font-bold text-vark-blue text-4xl">{capitalizeProductName(props.product.name)}</h1>
       <p className="mt-10 text-base text-gr-blue leading-6">
         {props.product.description}
       </p>
