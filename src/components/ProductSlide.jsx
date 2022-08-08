@@ -16,7 +16,7 @@ export default function ProductSlide(props) {
         </div>
         <SlideImage styles="xl:rounded-xl overflow-hidden" />
       </div>
-      <SlideControls product={props.product} styles="gap-6 grid-cols-4 mt-6 hidden xl:grid" />
+      <SlideControls product={props.product} styles="gap-6 grid-cols-4 mt-6 hidden lg:grid" />
     </section>
   )
 }
