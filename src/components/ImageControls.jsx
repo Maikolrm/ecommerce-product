@@ -10,8 +10,9 @@ function Button(props) {
   return (
     <button
       disabled={props.disabled}
+      style={{ width: pixels, height: pixels, lineHeight: pixels }}
       onClick={() => props.dispatch({ type: "select-product-image", value: props.action === "prev" ? props.selectedImage - 1 : props.selectedImage + 1 })}
-      className={`w-[${pixels}] h-[${pixels}] rounded-full bg-white shadow-md text-dark-blue leading-[${pixels}] hover:text-pr-orange`}>
+      className={`block rounded-full bg-white shadow-md text-dark-blue hover:text-pr-orange`}>
       <i className={"fa-solid " + (props.action === "prev" ? "fa-angle-left" : "fa-angle-right")}></i>
     </button>
   )
