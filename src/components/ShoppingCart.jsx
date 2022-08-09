@@ -20,7 +20,7 @@ export default function ShoppingCart(props) {
   }, [])
 
   return (
-    <div className={"absolute top-[110%] right-[1%] w-[98%] z-10 max-w-lg bg-white rounded-xl shadow-xl " + (props.visible ? "" : "hidden")}>
+    <div className={"absolute top-[110%] right-[1%] w-[98%] z-[100] max-w-lg bg-white rounded-xl shadow-xl " + (props.visible ? "" : "hidden")}>
       <h2 className="p-6 border-b border-gray-200 font-semibold text-base text-vark-blue leading-none">Cart</h2>
       <div className={props.items.length ? "" : "h-64"}>
         {Boolean(props.items.length) ? (
