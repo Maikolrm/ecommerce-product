@@ -6,6 +6,9 @@ export default function ProductSlide(props) {
   return (
     <section className="flex-1 lg:px-10">
       <div className="relative lg:rounded-xl overflow-hidden">
+        <button onClick={() => props.dispatch({ type: "show-lightbox", value: true })} className="absolute top-2 left-1/2 -translate-x-1/2 w-10 h-10 bg-black/20 text-white rounded-md text-base leadging-10">
+          <i className="fa-solid fa-expand"></i>
+        </button>
         <div className="absolute top-1/2 left-0 -translate-y-1/2 flex items-center px-4 w-full lg:hidden">
           <button disabled={!props.selectedImage} onClick={() => props.dispatch({ type: "select-product-image", value: props.selectedImage - 1})} className="w-10 h-10 rounded-full bg-white shadow-md text-dark-blue leading-10 hover:text-pr-orange">
             <i className="fa-solid fa-angle-left"></i>
