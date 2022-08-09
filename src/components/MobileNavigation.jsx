@@ -1,6 +1,6 @@
 export default function MobileNavigation(props) {
   return (
-    <div className="absolute inset-0 bg-black/70 lg:hidden">
+    <div className="absolute inset-0 z-[500] bg-black/70 lg:hidden">
       <div className="w-2/3 h-full p-6 pt-4 bg-white border-l border-light-blue sm:max-w-sm">
         <div>
           <button onClick={() => props.dispatch({ type: "show-mobile-nav", value: false })} className="w-10 h-10 text-xl text-left text-dark-blue leading-10">
