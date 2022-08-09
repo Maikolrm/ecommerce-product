@@ -1,23 +1,19 @@
 // components
 import SlideImage from "./SlideImage"
 import SlideControls from "./SlideControls"
+import ImageControls from "./ImageControls"
 
 export default function ProductSlide(props) {
   return (
     <section className="flex-1 lg:px-10">
       <div className="relative lg:rounded-xl overflow-hidden">
-        <button onClick={() => props.dispatch({ type: "show-lightbox", value: true })} className="absolute top-2 left-1/2 -translate-x-1/2 w-10 h-10 bg-black/20 text-white rounded-md text-base leadging-10">
+        <button
+          onClick={() => props.dispatch({ type: "show-lightbox", value: true })}
+          className="absolute top-2 left-1/2 -translate-x-1/2 z-10 w-10 h-10 bg-black/20 text-white rounded-md text-base leadging-10">
           <i className="fa-solid fa-expand"></i>
         </button>
-        <div className="absolute top-1/2 left-0 -translate-y-1/2 flex items-center px-4 w-full lg:hidden">
-          <button disabled={!props.selectedImage} onClick={() => props.dispatch({ type: "select-product-image", value: props.selectedImage - 1})} className="w-10 h-10 rounded-full bg-white shadow-md text-dark-blue leading-10 hover:text-pr-orange">
-            <i className="fa-solid fa-angle-left"></i>
-          </button>
-          <button disabled={(props.product.images.length - 1 ) === props.selectedImage} onClick={() => props.dispatch({ type: "select-product-image", value: props.selectedImage + 1})} className="ml-auto w-10 h-10 rounded-full bg-white shadow-md text-dark-blue leading-10 hover:text-pr-orange">
-            <i className="fa-solid fa-angle-right"></i>
-          </button>
-        </div>
-        <SlideImage styles="xl:rounded-xl overflow-hidden" />
+        <ImageControls styles="left-0 w-full px-4 lg:hidden" dispatch={props.dispatch} />
+        <SlideImage styles="overflow-hidden xl:rounded-xl" dispatch={props.dispatch} />
       </div>
       <SlideControls product={props.product} styles="gap-6 grid-cols-4 mt-6 hidden lg:grid" />
     </section>
