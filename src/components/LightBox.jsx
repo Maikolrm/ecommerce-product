@@ -13,7 +13,7 @@ export default function Lightbox(props) {
           </button>
         </div>
         <div className="relative mt-2">
-          <ImageControls styles="w-[109%] left-[-4.5%]" dispatch={props.dispatch} />
+          <ImageControls styles="w-full" translate={true} dispatch={props.dispatch} />
           <SlideImage product={props.product} styles="rounded-xl overflow-hidden" dispatch={props.dispatch} />
         </div>
         <SlideControls product={props.product} styles="flex gap-6 pt-6 md:px-6" dispatch={props.dipatch} />
