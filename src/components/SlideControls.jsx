@@ -6,13 +6,13 @@ import AppDispatch from "../AppDispatch"
 
 export default function SlideControls(props) {
   // app state
-  const { selectedImage } = useContext(AppState)
+  const { product, selectedImage } = useContext(AppState)
 
   // app dispatch
   const appDispatch = useContext(AppDispatch)
   return (
     <div className={props.styles}>
-      {props.product.images.map((button, index) => (
+      {product.images.map((button, index) => (
         <button
           onClick={() => appDispatch({ type: "select-product-image", value: index })}
           key={index}
@@ -20,7 +20,7 @@ export default function SlideControls(props) {
           <img
             className={"w-full h-full object-cover group-hover:opacity-50 group-focus:opacity-50 " + (index === selectedImage ? "opacity-50" : "")}
             src={`/image-product-${index + 1}-thumbnail.jpg`}
-            alt={props.product.name}
+            alt={product.name}
           />
         </button>
       ))}
