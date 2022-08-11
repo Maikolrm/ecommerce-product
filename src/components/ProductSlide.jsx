@@ -15,7 +15,7 @@ export default function ProductSlide(props) {
         <ImageControls styles="left-0 w-full px-4 lg:hidden" dispatch={props.dispatch} />
         <SlideImage styles="overflow-hidden xl:rounded-xl" dispatch={props.dispatch} />
       </div>
-      <SlideControls product={props.product} styles="gap-6 grid-cols-4 mt-6 hidden lg:grid" />
+      <SlideControls styles="gap-6 grid-cols-4 mt-6 hidden lg:grid" />
     </section>
   )
 }
