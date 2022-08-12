@@ -43,7 +43,7 @@ export default function ProductInfo(props) {
               {props.product.discount}%
             </span>
           </h2>
-          <h4 className="font-bold text-sm text-gr-blue line-through">{props.product.price}</h4>
+          <h3 className="font-bold text-sm text-gr-blue line-through">{props.product.price}</h3>
         </div>
         <form onSubmit={handleSubmit} className="mt-10 lg:flex">
           <div className="flex bg-light-blue rounded-lg overflow-hidden">
